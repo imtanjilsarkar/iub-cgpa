@@ -3,10 +3,17 @@
 @layer base {
   body {
     @apply bg-gray-50 text-gray-900 antialiased;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .dark body {
     @apply bg-gray-950 text-gray-100;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
