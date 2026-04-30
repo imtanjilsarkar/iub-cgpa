@@ -11,7 +11,7 @@ export default function PreviousCGPA({ previousCGPA, previousCredits, onUpdate }
       >
         <span className="text-gray-400 dark:text-gray-500 text-sm shrink-0">{isCollapsed ? '▶' : '▼'}</span>
         <span className="font-semibold text-green-700 dark:text-green-300 text-sm sm:text-base">
-          📋 Previous CGPA
+           Previous CGPA
         </span>
         {(previousCGPA > 0 || previousCredits > 0) && (
           <span className="text-xs text-green-600 dark:text-green-400 ml-auto">
