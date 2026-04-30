@@ -22,7 +22,7 @@ export default function WhatIfSimulator({ semesters }) {
 
   const getRequiredGrade = (gpa) => {
     if (gpa === null) return '';
-    if (gpa > 4.00) return 'Impossible 🚫';
+    if (gpa > 4.00) return 'Impossible';
     if (gpa >= 3.70) return 'A / A-';
     if (gpa >= 3.30) return 'B+';
     if (gpa >= 3.00) return 'B';
@@ -31,14 +31,14 @@ export default function WhatIfSimulator({ semesters }) {
     if (gpa >= 2.00) return 'C';
     if (gpa >= 1.70) return 'C-';
     if (gpa >= 1.00) return 'D';
-    return 'Below D 😞';
+    return 'Below D';
   };
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden mt-6">
       <div className="px-5 py-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-b border-gray-200 dark:border-gray-800">
         <h2 className="font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
-          🔮 What-If Simulator
+           What-If Simulator
         </h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
           See what GPA you need in future semesters to reach your target CGPA
@@ -62,7 +62,7 @@ export default function WhatIfSimulator({ semesters }) {
         <div className="flex flex-col sm:flex-row gap-3 mb-4">
           <div className="flex-1">
             <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
-              🎯 Target CGPA
+               Target CGPA
             </label>
             <input
               type="number"
@@ -77,7 +77,7 @@ export default function WhatIfSimulator({ semesters }) {
           </div>
           <div className="flex-1">
             <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
-              📚 Remaining Credits
+               Remaining Credits
             </label>
             <input
               type="number"
@@ -124,7 +124,7 @@ export default function WhatIfSimulator({ semesters }) {
             ) : (
               <>
                 <p className="text-lg font-semibold text-red-600 dark:text-red-400">
-                  🚫 Impossible!
+                   Impossible!
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                   You'd need GPA {requiredGPA.toFixed(2)} but maximum is 4.00
