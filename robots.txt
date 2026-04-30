@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iub-cgpa.vercel.app/sitemap.xml
