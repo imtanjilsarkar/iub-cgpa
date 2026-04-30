@@ -16,3 +16,13 @@ export const calculateCGPA = (semesters) => {
 export const getTotalCreditsEarned = (semesters) => {
   return semesters.flatMap(s => s.courses).reduce((sum, c) => sum + c.credits, 0);
 };
+
+export const calculateTotalCGPA = (semesters, previousCGPA = 0, previousCredits = 0) => {
+  const newCourses = semesters.flatMap(s => s.courses).filter(c => c.grade && c.credits > 0);
+  const newCredits = newCourses.reduce((sum, c) => sum + c.credits, 0);
+  const newPoints = newCourses.reduce((sum, c) => sum + c.credits * getGradePoint(c.grade), 0);
+  const oldPoints = previousCGPA * previousCredits;
+  const totalCredits = previousCredits + newCredits;
+  const totalPoints = oldPoints + newPoints;
+  return totalCredits > 0 ? totalPoints / totalCredits : 0;
+};
