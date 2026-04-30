@@ -33,7 +33,7 @@ A modern, privacy-first CGPA calculator built for **IUB (Independent University,
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 <p align="center">
   <img src="./screenshots/light-mode.png.png" alt="Light Mode" width="45%">
@@ -43,7 +43,7 @@ A modern, privacy-first CGPA calculator built for **IUB (Independent University,
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
