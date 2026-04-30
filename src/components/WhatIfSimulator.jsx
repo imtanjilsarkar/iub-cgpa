@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import { calculateCGPA, getTotalCreditsEarned } from '../utils/calculator';
+import { calculateCGPA, getTotalCreditsEarned, calculateTotalCGPA } from '../utils/calculator';
 import { getGradePoint, gradeOptions, getGradeColor } from '../utils/gradeData';
 
-export default function WhatIfSimulator({ semesters }) {
+export default function WhatIfSimulator({ semesters, previousCGPA = 0, previousCredits = 0 }) {
   const [targetCGPA, setTargetCGPA] = useState('');
   const [remainingCredits, setRemainingCredits] = useState('');
   const [showResult, setShowResult] = useState(false);
 
-  const currentCGPA = calculateCGPA(semesters);
-  const creditsEarned = getTotalCreditsEarned(semesters);
+  const currentCGPA = calculateTotalCGPA(semesters, previousCGPA, previousCredits);
+  const creditsEarned = getTotalCreditsEarned(semesters) + previousCredits;
   const totalGradePoints = currentCGPA * creditsEarned;
 
-  // Calculate required GPA
   const target = parseFloat(targetCGPA);
   const remaining = parseFloat(remainingCredits);
   const requiredGPA = target && remaining
@@ -22,7 +21,7 @@ export default function WhatIfSimulator({ semesters }) {
 
   const getRequiredGrade = (gpa) => {
     if (gpa === null) return '';
-    if (gpa > 4.00) return 'Impossible';
+    if (gpa > 4.00) return 'Impossible ';
     if (gpa >= 3.70) return 'A / A-';
     if (gpa >= 3.30) return 'B+';
     if (gpa >= 3.00) return 'B';
@@ -31,7 +30,7 @@ export default function WhatIfSimulator({ semesters }) {
     if (gpa >= 2.00) return 'C';
     if (gpa >= 1.70) return 'C-';
     if (gpa >= 1.00) return 'D';
-    return 'Below D';
+    return 'Below D ';
   };
 
   return (
